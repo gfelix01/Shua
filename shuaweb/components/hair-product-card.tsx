@@ -67,7 +67,7 @@ export function HairProductCard({
           )}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent h-1/2"></div>
           <div className="absolute bottom-3 left-3">
-            <Badge variant="gold" className="text-xs">
+            <Badge variant="default" className="text-xs bg-yellow-500 text-white">
               {length}
             </Badge>
           </div>

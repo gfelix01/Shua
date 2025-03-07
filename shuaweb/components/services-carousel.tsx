@@ -51,7 +51,7 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
                   </div>
                   <div className="p-6">
                     <div className="mb-4 text-center">
-                      <Badge variant="gold" className="mb-2">
+                      <Badge variant="default" className="mb-2">
                         {service.title}
                       </Badge>
                       <h3 className="text-xl font-bold mb-2">{service.title}</h3>
@@ -105,9 +105,8 @@ export function ServicesCarousel({ services }: ServicesCarouselProps) {
         {services.map((_, index) => (
           <button
             key={index}
-            className={`h-2 rounded-full transition-all ${
-              index === activeIndex ? "w-8 bg-amber-500" : "w-2 bg-gray-300"
-            }`}
+            className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-8 bg-amber-500" : "w-2 bg-gray-300"
+              }`}
             onClick={() => setActiveIndex(index)}
           />
         ))}

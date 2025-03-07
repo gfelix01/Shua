@@ -58,7 +58,7 @@ export function Promotions() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
                 {promo.badge && (
                   <Badge
-                    variant={index === 0 ? "gold" : index === 1 ? "pink" : "purple"}
+                    variant={index === 0 ? "default" : index === 1 ? "secondary" : "outline"}
                     className="absolute top-4 right-4 px-3 py-1"
                   >
                     {promo.badge}
