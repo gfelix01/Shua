@@ -1,10 +1,15 @@
-/** @type {import('next').NextConfig} */
+import { NextConfig } from 'next';
+
 const nextConfig = {
   experimental: {
-    turbo: {}, // Desactiva Turbopack
+    turbo: { enabled: false }, // ✅ Desactiva Turbopack
+  },
+  webpack: (config: any) => {
+    console.log("✅ Using Webpack instead of Turbopack");
+    return config;
   },
 };
 
-module.exports = nextConfig;
-
 export default nextConfig;
+
+
