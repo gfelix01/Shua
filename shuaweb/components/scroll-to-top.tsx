@@ -31,11 +31,11 @@ export function ScrollToTop() {
     <Button
       variant="outline"
       size="icon"
-      className={`fixed bottom-6 right-6 z-50 rounded-full bg-white/80 backdrop-blur-sm border-amber-500/30 shadow-lg transition-opacity duration-300 hover:bg-white hover:border-amber-500 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`fixed bottom-6 right-6 z-50 rounded-full bg-white/90 backdrop-blur-sm border-primary/30 shadow-soft transition-all duration-300 hover:bg-white hover:border-primary hover:shadow-hover ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         }`}
       onClick={scrollToTop}
     >
-      <ChevronUp className="h-5 w-5 text-amber-500" />
+      <ChevronUp className="h-5 w-5 text-primary" />
       <span className="sr-only">Volver arriba</span>
     </Button>
   )

@@ -1,14 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, MapPin, Phone } from "lucide-react"
+import { Instagram, MapPin, Phone, ChevronRight } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-neutral-900 text-white pt-20 pb-10">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <div className="mb-4">
+            <div className="mb-6">
               <Image
                 src="/images/logo.png"
                 alt="Shua Makeup Logo"
@@ -17,64 +17,80 @@ export function Footer() {
                 className="h-24 w-auto mix-blend-screen"
               />
             </div>
-            <p className="text-gray-400">
+            <p className="text-neutral-400 mb-6">
               Tu destino de belleza y cuidado personal. Ofrecemos servicios profesionales para realzar tu belleza
               natural.
             </p>
-            <div className="mt-4 flex space-x-4">
+            <div className="flex space-x-4">
               <Link
                 href="https://instagram.com/shuamakeupstudio"
                 target="_blank"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-500 transition-colors"
+                className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
-            <ul className="space-y-2">
+            <h4 className="text-xl font-serif font-bold mb-6">Enlaces Rápidos</h4>
+            <ul className="space-y-4">
               <li>
-                <Link href="#servicios" className="text-gray-400 hover:text-amber-500 transition-colors">
-                  Servicios
+                <Link
+                  href="#servicios"
+                  className="text-neutral-400 hover:text-primary transition-colors duration-300 flex items-center group"
+                >
+                  <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                  <span>Servicios</span>
                 </Link>
               </li>
               <li>
-                <Link href="#extensiones" className="text-gray-400 hover:text-amber-500 transition-colors">
-                  Extensiones de Cabello
+                <Link
+                  href="#extensiones"
+                  className="text-neutral-400 hover:text-primary transition-colors duration-300 flex items-center group"
+                >
+                  <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                  <span>Extensiones de Cabello</span>
                 </Link>
               </li>
               <li>
-                <Link href="#galeria" className="text-gray-400 hover:text-amber-500 transition-colors">
-                  Galería
+                <Link
+                  href="#galeria"
+                  className="text-neutral-400 hover:text-primary transition-colors duration-300 flex items-center group"
+                >
+                  <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                  <span>Galería</span>
                 </Link>
               </li>
               <li>
-                <Link href="#contacto" className="text-gray-400 hover:text-amber-500 transition-colors">
-                  Contacto
+                <Link
+                  href="#contacto"
+                  className="text-neutral-400 hover:text-primary transition-colors duration-300 flex items-center group"
+                >
+                  <ChevronRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                  <span>Contacto</span>
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Información de Contacto</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-amber-500" />
-                <span className="text-gray-400">Av. Santa Rosa esquina Altagracia, Plaza Maureen</span>
+            <h4 className="text-xl font-serif font-bold mb-6">Información de Contacto</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center space-x-3">
+                <MapPin className="h-5 w-5 text-primary" />
+                <span className="text-neutral-400">Av. Santa Rosa esquina Altagracia, Plaza Maureen</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-amber-500" />
-                <span className="text-gray-400">829-641-8720</span>
+              <li className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-primary" />
+                <span className="text-neutral-400">829-641-8720</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Instagram className="h-4 w-4 text-amber-500" />
-                <span className="text-gray-400">@shuamakeupstudio</span>
+              <li className="flex items-center space-x-3">
+                <Instagram className="h-5 w-5 text-primary" />
+                <span className="text-neutral-400">@shuamakeupstudio</span>
               </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-neutral-800 mt-12 pt-8 text-center text-neutral-500">
           <p>&copy; {new Date().getFullYear()} Shua Makeup & Beauty. Todos los derechos reservados.</p>
         </div>
       </div>

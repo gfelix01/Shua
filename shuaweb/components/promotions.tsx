@@ -34,9 +34,9 @@ export function Promotions() {
     <section className="py-20 bg-gradient-to-b from-white to-purple-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold mb-4 text-purple-700">Promociones Especiales</h2>
+          <h2 className="text-3xl font-bold mb-4">Promociones Especiales</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-[#ff1493] mx-auto mb-6"></div>
-          <p className="text-gray-700 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Aprovecha nuestras promociones especiales y disfruta de los mejores servicios de belleza a precios
             increíbles.
           </p>
@@ -52,21 +52,21 @@ export function Promotions() {
                 <Image
                   src={promo.image || "/placeholder.svg"}
                   alt={promo.title}
-                  layout="fill"
+                  fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80"></div>
                 {promo.badge && (
                   <Badge
-                    variant={index === 0 ? "default" : index === 1 ? "secondary" : "outline"}
+                    variant={index === 0 ? "gold" : index === 1 ? "pink" : "purple"}
                     className="absolute top-4 right-4 px-3 py-1"
                   >
                     {promo.badge}
                   </Badge>
                 )}
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/80 to-transparent">
-                <h3 className="text-2xl font-bold mb-2">{promo.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 className="text-xl font-bold mb-2">{promo.title}</h3>
                 <p className="mb-3">{promo.description}</p>
                 <div className="flex items-center justify-between">
                   <div>
@@ -85,3 +85,4 @@ export function Promotions() {
     </section>
   )
 }
+

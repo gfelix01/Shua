@@ -34,7 +34,7 @@ export function HairProductCard({
 
   return (
     <Card
-      className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-lg"
+      className="overflow-hidden border-none shadow-product hover:shadow-hover transition-all duration-300 transform hover:-translate-y-1 rounded-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -46,58 +46,68 @@ export function HairProductCard({
               alt={title}
               width={400}
               height={400}
-              className="object-cover w-full h-full transition-transform duration-500 ease-out"
+              className="object-cover w-full h-full transition-transform duration-700 ease-out"
               style={{
-                transform: isHovered ? "scale(1.1)" : "scale(1)",
+                transform: isHovered ? "scale(1.08)" : "scale(1)",
               }}
             />
           </div>
           <button
             onClick={() => setIsLiked(!isLiked)}
-            className="absolute top-2 right-2 p-2 bg-white/80 rounded-full backdrop-blur-sm transition-colors hover:bg-white shadow-md z-10"
+            className="absolute top-3 right-3 p-2 bg-white/80 rounded-full backdrop-blur-sm transition-colors hover:bg-white shadow-sm z-10"
+            aria-label={isLiked ? "Quitar de favoritos" : "Añadir a favoritos"}
           >
-            <Heart className={`w-5 h-5 ${isLiked ? "fill-red-500 text-red-500" : "text-gray-600"}`} />
+            <Heart className={`w-5 h-5 ${isLiked ? "fill-red-500 text-red-500" : "text-neutral-600"}`} />
           </button>
           {!inStock && (
             <div className="absolute inset-0 bg-black/60 flex items-center justify-center backdrop-blur-sm z-10">
-              <Badge variant="destructive" className="text-lg px-4 py-1">
+              <Badge variant="destructive" className="text-lg px-4 py-1.5 font-medium">
                 Agotado
               </Badge>
             </div>
           )}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent h-1/2"></div>
           <div className="absolute bottom-3 left-3">
-            <Badge variant="default" className="text-xs bg-yellow-500 text-white">
+            <Badge
+              variant="outline"
+              className="text-xs px-2 py-1 bg-white/80 backdrop-blur-sm border-primary text-primary"
+            >
               {length}
             </Badge>
           </div>
         </div>
-        <div className="p-5 space-y-3">
-          <h3 className="font-bold text-lg">{title}</h3>
+        <div className="p-6 space-y-4">
+          <h3 className="font-bold text-lg font-serif">{title}</h3>
           <div className="flex items-center gap-2">
             <div className="flex items-center">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className={`w-4 h-4 ${i < rating ? "fill-amber-400 text-amber-400" : "text-gray-300"}`} />
+                <Star
+                  key={i}
+                  className={`w-4 h-4 ${i < rating ? "fill-amber-400 text-amber-400" : "text-neutral-300"}`}
+                />
               ))}
             </div>
-            <span className="text-sm text-gray-600">({rating}.0)</span>
+            <span className="text-sm text-neutral-600">({rating}.0)</span>
           </div>
-          <div className="space-y-2 bg-gray-50 p-3 rounded-lg">
+          <div className="space-y-2 bg-neutral-50 p-4 rounded-lg">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-600">Tipo:</span>
+              <span className="text-neutral-600">Tipo:</span>
               <span className="font-medium">{type}</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-600">Peso:</span>
+              <span className="text-neutral-600">Peso:</span>
               <span className="font-medium">{weight}</span>
             </div>
           </div>
-          <div className="flex items-center gap-2 pt-2">
-            <span className="text-2xl font-bold text-amber-500">RD${price}</span>
-            {originalPrice && <span className="text-sm text-gray-500 line-through">RD${originalPrice}</span>}
+          <div className="flex items-center justify-between pt-2">
+            <div className="w-full">
+              <span className="text-2xl font-bold text-primary">RD${price}</span>
+              {originalPrice && <span className="ml-2 text-sm text-neutral-500 line-through">RD${originalPrice}</span>}
+            </div>
           </div>
         </div>
       </CardContent>
     </Card>
   )
 }
+

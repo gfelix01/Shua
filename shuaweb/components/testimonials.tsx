@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
 
@@ -25,8 +24,6 @@ const testimonials = [
 ]
 
 export function Testimonials() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-
   return (
     <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,10 +40,7 @@ export function Testimonials() {
             >
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <div
-                    className="relative w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-[#ff1493] cursor-pointer transform transition-transform duration-300 hover:scale-125"
-                    onClick={() => setSelectedImage(testimonial.image)}
-                  >
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-[#ff1493]">
                     <Image
                       src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
@@ -73,22 +67,7 @@ export function Testimonials() {
           ))}
         </div>
       </div>
-
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative w-3/4 h-3/4">
-            <Image
-              src={selectedImage}
-              alt="Selected"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </div>
-      )}
     </section>
   )
 }
+
