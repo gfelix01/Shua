@@ -10,10 +10,7 @@ const carouselImages = [
     src: "/images/banner2.jpg",
     alt: "Shua Makeup & Beauty Banner 2",
   },
-  {
-    src: "/images/banner3.jpg",
-    alt: "Shua Makeup & Beauty Banner 3",
-  },
+
 ]
 
 export function HeroSection() {
