@@ -34,7 +34,7 @@ export function HairProductCard({
 
   return (
     <Card
-      className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+      className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -101,4 +101,3 @@ export function HairProductCard({
     </Card>
   )
 }
-

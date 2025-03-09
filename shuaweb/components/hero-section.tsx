@@ -18,9 +18,10 @@ const carouselImages = [
 
 export function HeroSection() {
   return (
-    <section className="relative h-[400px]">
-      <ImageCarousel images={carouselImages} />
+    <section className="relative w-full overflow-hidden flex justify-center items-center">
+      <div className="w-full max-w-[95%] xl:max-w-[1400px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]">
+        <ImageCarousel images={carouselImages} />
+      </div>
     </section>
   )
 }
-

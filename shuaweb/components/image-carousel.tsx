@@ -19,11 +19,7 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    // Set loaded after a short delay to trigger animations
-    const timer = setTimeout(() => {
-      setIsLoaded(true)
-    }, 100)
-
+    const timer = setTimeout(() => setIsLoaded(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
@@ -48,15 +44,15 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-lg">
+    <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-xl">
       {/* Main Image */}
       <div className="relative h-full w-full">
         {images.map((image, index) => (
           <div
             key={index}
             className={cn(
-              "absolute inset-0 transition-opacity duration-1000",
-              index === currentIndex ? "opacity-100" : "opacity-0",
+              "absolute inset-0 transition-opacity duration-700 ease-in-out",
+              index === currentIndex ? "opacity-100" : "opacity-0"
             )}
           >
             <Image
@@ -64,40 +60,43 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
               alt={image.alt}
               fill
               className={cn(
-                "object-contain transition-transform duration-1000",
-                isLoaded && index === currentIndex ? "scale-100" : "scale-105",
+                "object-cover transition-transform duration-700 ease-in-out",
+                isLoaded && index === currentIndex ? "scale-100" : "scale-110"
               )}
               priority
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
       </div>
 
       {/* Navigation Arrows */}
       <Button
         variant="ghost"
         size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white hover:bg-black/50 rounded-full h-10 w-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60 rounded-full h-14 w-14 shadow-lg"
         onClick={prevSlide}
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-7 w-7" />
       </Button>
       <Button
         variant="ghost"
         size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white hover:bg-black/50 rounded-full h-10 w-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60 rounded-full h-14 w-14 shadow-lg"
         onClick={nextSlide}
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-7 w-7" />
       </Button>
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 space-x-2">
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 space-x-3">
         {images.map((_, index) => (
           <button
             key={index}
-            className={`h-2 rounded-full transition-all ${index === currentIndex ? "w-8 bg-white" : "w-2 bg-white/50"}`}
+            className={cn(
+              "h-3 w-3 rounded-full transition-all duration-300",
+              index === currentIndex ? "w-10 bg-white shadow-lg" : "bg-white/50"
+            )}
             onClick={() => {
               setCurrentIndex(index)
               setIsAutoPlaying(false)
@@ -108,4 +107,3 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
     </div>
   )
 }
-
