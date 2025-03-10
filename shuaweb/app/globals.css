@@ -137,3 +137,16 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #b08f26;
 }
+
+.testimonial-image {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-image.highlight {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-image-content {
+  object-fit: contain;
+}
