@@ -1,30 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ImageCarousel } from "@/components/image-carousel"
 import { ServicesCarousel } from "@/components/services-carousel"
 import { HairSection } from "@/components/hair-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { GallerySection } from "@/components/gallery-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-
-// Datos de ejemplo para el carrusel de imágenes
-const carouselImages = [
-  {
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagen%20de%20WhatsApp%202025-02-23%20a%20las%2020.03.16_89ef1953.jpg-6ZDuKGSoeai9rPZLlbWz5BsCOWUJxm.jpeg",
-    alt: "Shua Makeup & Beauty Banner 1",
-  },
-  {
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagen%20de%20WhatsApp%202025-02-23%20a%20las%2020.03.16_f78b7fd8.jpg-Tl4h8qDPnJtvXlco6RhmsvsOgxXQat.jpeg",
-    alt: "Shua Makeup & Beauty Banner 2",
-  },
-  {
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Imagen%20de%20WhatsApp%202025-02-23%20a%20las%2020.03.15_be69efd0.jpg-hbYkbQagYaaXckLgh4tV1B54d7SwrN.jpeg",
-    alt: "Shua Makeup & Beauty Banner 3",
-  },
-]
+import { HeroSection } from "@/components/hero-section"
 
 // Datos de servicios
 const services = [
@@ -105,22 +88,7 @@ export default function ShuaMakeup() {
       </nav>
 
       {/* Hero Section with Carousel */}
-      <section className="relative h-[500px] md:h-[600px] mt-20">
-        <ImageCarousel images={carouselImages} />
-        <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30">
-          <div className="text-center text-white px-4 animate-fade-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 tracking-tight">
-              Belleza que Transforma
-            </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-white/90">
-              Descubre servicios profesionales que realzan tu belleza natural
-            </p>
-            <Button className="btn-primary text-base px-8 py-3">
-              Descubrir Servicios <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Services Section */}
       <section id="servicios" className="section-padding bg-gradient-to-b from-neutral-50 to-white">
