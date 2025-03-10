@@ -21,8 +21,6 @@ export function VideoHero({ videoSrc, posterSrc }: VideoHeroProps) {
 
         const handleCanPlay = () => {
             setIsLoaded(true);
-            videoElement.play().catch(() => setIsPlaying(false));
-            setIsPlaying(true);
         };
 
         videoElement.addEventListener("canplay", handleCanPlay);
@@ -32,13 +30,20 @@ export function VideoHero({ videoSrc, posterSrc }: VideoHeroProps) {
         };
     }, []);
 
+    const handlePlay = () => {
+        if (!videoRef.current) return;
+
+        videoRef.current.play().catch(() => setIsPlaying(false));
+        setIsPlaying(true);
+    };
+
     const togglePlay = () => {
         if (!videoRef.current) return;
 
         if (isPlaying) {
             videoRef.current.pause();
         } else {
-            videoRef.current.play().catch(() => setIsPlaying(false));
+            handlePlay();
         }
         setIsPlaying(!isPlaying);
     };
